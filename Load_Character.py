@@ -1,29 +1,19 @@
 import sqlite3
 from my_import_file import *
 
-s = 'character_name'
-s1 = 's'
+
+character_name_global = "Blake"
+
+
 kharacters = {}
-kharacters["Blake"] = Character
-kharacters['Blake'].all_information = copy.deepcopy(tables)
+kharacters[character_name_global] = Character
+kharacters[character_name_global].all_information = copy.deepcopy(tables)
 
 
-connection = sqlite3.connect('/home/luke/PycharmProjects/The_Game/db.Character_Data')
-
-connection.execute("PRAGMA foreign_keys = ON")
-
-cursor1 = connection.cursor()
-
-line9 = "SELECT * FROM Language_Items WHERE character_name='Blake' AND ID=3"
-
-line1_insert = ""
 
 
-def fetch_commit(sqline):
-    results = cursor1.execute(sqline)
-    r = results.fetchall()
-    connection.commit()
-    return r
+
+
 
 
 def get_table_names():
@@ -35,13 +25,15 @@ def get_table_names():
     return all_sql_table_names
 
 
-def get_table_keys(tables_gtk):
+def get_table_keys(tables_gtk, character_name_gtk):
+    s = 'character_name'
+    s1 = 's'
     r2 = []
     for i in range(len(tables_gtk)):
         if tables_gtk[i] == 'Characters':
-            sqline_2 = "SELECT ID FROM {} WHERE {}='Blake'".format(tables_gtk[i], s + s1)
+            sqline_2 = "SELECT ID FROM {} WHERE {}='{}'".format(tables_gtk[i], s + s1, character_name_gtk)
         else:
-            sqline_2 = "SELECT ID FROM {} WHERE {}='Blake'".format(tables_gtk[i], s)
+            sqline_2 = "SELECT ID FROM {} WHERE {}='{}'".format(tables_gtk[i], s, character_name_gtk)
         r2.append(fetch_commit(sqline_2))
     return r2
 
@@ -53,16 +45,16 @@ def sql_line_maker(column, table, qualifier, qualifier2, qualifier3,
     return sql_line_1
 
 
-def load_keys(character_lk, keys):
-    rkvd_i = rkvd(character_lk['Blake'].all_information)
+def load_keys(character_lk, keys, character_name_lk):
+    rkvd_i = rkvd(character_lk[character_name_lk].all_information)
     for i in range(len(keys)):
         for j in range(len(keys[i])):
-            character_lk['Blake'].all_information[rkvd_i['key'][i]][keys[i][j][0]] = \
-                copy.deepcopy(character_lk['Blake'].all_information[rkvd_i['key'][i]]['key'])
+            character_lk[character_name_lk].all_information[rkvd_i['key'][i]][keys[i][j][0]] = \
+                copy.deepcopy(character_lk[character_name_lk].all_information[rkvd_i['key'][i]]['key'])
 
 
 # key_storage.append(dreturn_keys_values(karacter['Blake'].all_information[args_dict['table']][args_dict['qualifier2']][args_dict['column']]))
-def get_sql_arguments(karacter):
+def get_sql_arguments(karacter, character_name_gsa):
     args_dict = {
         "column": "",
         "table": "",
@@ -71,16 +63,16 @@ def get_sql_arguments(karacter):
     }
     sql_args = []
     key_storage = [0, 1, 2]
-    key_storage[0] = dreturn_keys_values(karacter['Blake'].all_information)
+    key_storage[0] = dreturn_keys_values(karacter[character_name_gsa].all_information)
 
     for i in range(len(key_storage[0]['key'])):  # all tables
         args_dict['table'] = key_storage[0]['key'][i]
-        key_storage[1] = dreturn_keys_values(karacter['Blake'].all_information[args_dict['table']])
+        key_storage[1] = dreturn_keys_values(karacter[character_name_gsa].all_information[args_dict['table']])
 
         for j in range(len(key_storage[1]['key'])):  # version of a table
             args_dict['qualifier2'] = key_storage[1]['key'][j]
             key_storage[2] = dreturn_keys_values(
-                karacter['Blake'].all_information[args_dict['table']][args_dict['qualifier2']])
+                karacter[character_name_gsa].all_information[args_dict['table']][args_dict['qualifier2']])
 
             for ij in range(len(key_storage[2]['key'])):  # values in table
                 args_dict['column'] = key_storage[2]['key'][ij]
@@ -93,9 +85,9 @@ def load_character(base_item, sub_item, arg3):
 
 
 all_sql_tables = get_table_names()
-table_keys = get_table_keys(all_sql_tables)
-load_keys(kharacters, table_keys)
-sql_arguments = get_sql_arguments(kharacters)
+table_keys = get_table_keys(all_sql_tables, character_name_global)
+load_keys(kharacters, table_keys, character_name_global)
+sql_arguments = get_sql_arguments(kharacters, character_name_global)
 
 
 for i in range(len(sql_arguments)):
@@ -106,13 +98,13 @@ for i in range(len(sql_arguments)):
     if arg['qualifier2'] != 'key':
         if arg['table'] != 'characters':
             sq_line_1 = sql_line_maker(arg['column'], arg['table'], arg['qualifier'], arg['qualifier2'],
-                                       'character_name', 'Blake')
+                                       'character_name', character_name_global)
             r102 = fetch_commit(sq_line_1)
-            load_character(kharacters['Blake'].all_information, r102, arg2)
+            load_character(kharacters[character_name_global].all_information, r102, arg2)
 
 
-j_obj = rkvd(kharacters['Blake'].all_information)
+j_obj = rkvd(kharacters[character_name_global].all_information)
 for cc in range(len(j_obj['key'])):
     print(j_obj['key'][cc])
-    print_lines_dict(kharacters['Blake'].all_information[j_obj['key'][cc]])
+    print_lines_dict(kharacters[character_name_global].all_information[j_obj['key'][cc]])
     define_spaces(2)

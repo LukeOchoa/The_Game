@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="591768e4-d9cd-422f-a9be-39cc7524f5bf" name="Default Changelist" comment="" />
+    <list default="true" id="591768e4-d9cd-422f-a9be-39cc7524f5bf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Load_Character.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/luke.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/luke.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/SQL_Test_File.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/db.Character_Data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/my_import_file.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +22,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZBhu1A8SO407zMD0HBkJHfu0jN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,9 +34,99 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Character_Menu">
+    <configuration name="Atom_Sketch_File" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="The_Game" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Code/Atom_Sketch_File.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Character_Menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="The_Game" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Character_Menu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Load_Character" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="The_Game" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Load_Character.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SQL_Test_File (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="The_Game" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Code/SQL_Test_File.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="SQL_Test_File" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="The_Game" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -48,7 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Character_Menu" />
+        <item itemvalue="Python.Atom_Sketch_File" />
+        <item itemvalue="Python.Load_Character" />
         <item itemvalue="Python.SQL_Test_File" />
+        <item itemvalue="Python.SQL_Test_File (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -66,21 +172,29 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1897" height="287" key="GridCell.Tab.0.bottom" timestamp="1584320069786">
+    <state width="1830" height="287" key="GridCell.Tab.0.bottom" timestamp="1584785774581">
       <screen x="0" y="1480" width="1920" height="1080" />
     </state>
-    <state width="1897" height="287" key="GridCell.Tab.0.bottom/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584320069786" />
-    <state width="1897" height="287" key="GridCell.Tab.0.center" timestamp="1584320069786">
+    <state width="1830" height="287" key="GridCell.Tab.0.bottom/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584785774581" />
+    <state width="1830" height="287" key="GridCell.Tab.0.center" timestamp="1584785774581">
       <screen x="0" y="1480" width="1920" height="1080" />
     </state>
-    <state width="1897" height="287" key="GridCell.Tab.0.center/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584320069786" />
-    <state width="1897" height="287" key="GridCell.Tab.0.left" timestamp="1584320069786">
+    <state width="1830" height="287" key="GridCell.Tab.0.center/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584785774581" />
+    <state width="1830" height="287" key="GridCell.Tab.0.left" timestamp="1584785774581">
       <screen x="0" y="1480" width="1920" height="1080" />
     </state>
-    <state width="1897" height="287" key="GridCell.Tab.0.left/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584320069786" />
-    <state width="1897" height="287" key="GridCell.Tab.0.right" timestamp="1584320069786">
+    <state width="1830" height="287" key="GridCell.Tab.0.left/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584785774581" />
+    <state width="1830" height="287" key="GridCell.Tab.0.right" timestamp="1584785774581">
       <screen x="0" y="1480" width="1920" height="1080" />
     </state>
-    <state width="1897" height="287" key="GridCell.Tab.0.right/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584320069786" />
+    <state width="1830" height="287" key="GridCell.Tab.0.right/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584785774581" />
+    <state x="449" y="1654" key="SettingsEditor" timestamp="1584330021158">
+      <screen x="0" y="1480" width="1920" height="1080" />
+    </state>
+    <state x="449" y="1654" key="SettingsEditor/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584330021158" />
+    <state x="647" y="1629" width="683" height="806" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584782771565">
+      <screen x="0" y="1480" width="1920" height="1080" />
+    </state>
+    <state x="647" y="1629" width="683" height="806" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1440.2560/0.1480.1920.1080/3360.640.1200.1920@0.1480.1920.1080" timestamp="1584782771565" />
   </component>
 </project>

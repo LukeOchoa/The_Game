@@ -1,4 +1,30 @@
 import copy
+import sqlite3
+
+
+def return_index_location(sentence_a, find_item, switch):
+    is_location = 0
+    index_location = 0
+    if switch:
+        is_location = True
+
+    for p in range(len(sentence_a)):
+        if alpha[p] == find_item:
+            index_location = p
+            is_location = True
+            break
+        is_location = False
+    if switch:
+        return [index_location, is_location]
+    else:
+        return index_location
+
+
+def fetch_commit(sqline):
+    results = cursor1.execute(sqline)
+    r = results.fetchall()
+    connection.commit()
+    return r
 
 
 def define_spaces(amount):
@@ -197,3 +223,13 @@ tables = {
     "skills": {"key": skills},
     "social information": {"key": social_information}
 }
+
+
+#######################################################
+
+
+connection = sqlite3.connect('/home/luke/PycharmProjects/The_Game/Databases/db.Character_Data')
+
+connection.execute("PRAGMA foreign_keys = ON")
+
+cursor1 = connection.cursor()
