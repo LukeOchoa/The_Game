@@ -228,7 +228,7 @@ tables = {
 #######################################################
 
 
-connection = sqlite3.connect('/home/luke/PycharmProjects/The_Game/Databases/db.Character_Data')
+connection = sqlite3.connect('/home/luke/PycharmProjects/The_Game/Databases/db.Character_Data_Test')
 
 connection.execute("PRAGMA foreign_keys = ON")
 

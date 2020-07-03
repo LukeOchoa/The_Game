@@ -1,4 +1,6 @@
 from my_import_file import *
+from Load_Character import *
+
 
 ril = return_index_location
 
@@ -14,16 +16,22 @@ def display_command(commands_dc):
     cm = command_markers
     for i in range(len(commands_dc) - 1):
         commands_dc[cm[i]][2].pop()
-    if "".join(commands_dc[":"][2]) == 'display':
-        if "".join(commands_dc["-"][2]) in dreturn_keys_values(tables)["key"]:
-            if "".join(commands_dc["#"][2]) in dreturn_keys_values(tables["".join(commands_dc["-"][2])]):
-                print_lines_dict(tables["".join(commands_dc['-'][2])]["".join(commands_dc["#"][2])])
+        commands_dc[cm[i]][2] = ("".join(commands_dc[cm[i]][2]))
+
+    if commands_dc["#"][2].isdigit():
+        commands_dc["#"][2] = int(commands_dc["#"][2])
+
+    if commands_dc[":"][2] == 'display':
+        if commands_dc['-'][2] in dreturn_keys_values(kharacters[character_name_global].all_information)["key"]:
+            if commands_dc["#"][2] in dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]]):
+                print_lines_dict(kharacters[character_name_global].all_information[commands_dc["-"][2]][commands_dc['#'][2]])
             else:
-                print(f'Invalid Key==({"".join(commands_dc["#"][2])})')
+                print(type(commands_dc["#"][2]), "  |   ", dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]]))
+                print(f'Invalid Key==({commands_dc["#"][2]})')
         else:
-            print(f'Invalid Table==({"".join(commands_dc["-"][2])})')
+            print(f'Invalid Table==({commands_dc["-"][2]})')
     else:
-        print(f'Somehow you triggered this and now we are both sad ||| ({"".join(commands_dc[":"][2])})')
+        print(f'Somehow you triggered this and now we are both sad ||| ({commands_dc[":"][2]})')
 
 
 def write_command():
@@ -47,7 +55,6 @@ def command_rules(commands_a):
         'display:'
     ]
     while True:
-        # print(commands_a)
         if commands_a[':'][0] == command_options[0]:
             for i, j in commands_a.items():
                 if j[0][0] == ' ' or j[0][-1] == ' ' or j[1] is False:
@@ -57,14 +64,9 @@ def command_rules(commands_a):
         if commands_a[':'][0] == command_options[1]:
             commands_a['.'][1] = True
             for i, j in commands_a.items():
-                define_spaces(1)
-                # print("isolate=", j)
-                define_spaces(1)
                 if i == '.':
                     break
-                # print('j1=', j[0][0], " and j", j)
-                # print('j2=', j[0][-1], " and j", j)
-                # print('j3=', j[1], " and j", j)
+
                 if j[0][0] == ' ' or j[0][-1] == ' ' or j[1] is False:
                     return False, 'incorrect word syntax'
             display_command(commands_a)
@@ -92,9 +94,7 @@ def command_checker(user_command_a):
     fa = format_a
     ###               ###
 
-    user_command_array = [[0]]
     j = 0
-
     for i in range(len(user_command_a)):
         if user_command_a[i] == ' ' and user_command_a[i - 1] == command_markers[j]:        # this code basically says loop over each character untill you find a pattern that matches a command pattern
             j = j + 1                                                                       # nd if you do then increment j(which which is used to index the command markers) so you can search for the next pattern
@@ -109,6 +109,10 @@ def command_checker(user_command_a):
     return command_rules(format_a)
 
 
+activate_Load_Character()
+
 user_command = input()
 
 print(command_checker(user_command))
+
+# print(kharacters[character_name_global].all_information['characters'][item])
