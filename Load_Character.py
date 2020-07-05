@@ -68,11 +68,10 @@ def load_keys(kharacter_lk, keys, character_name_lk):
             # print(str(keys[i][j][0]))
             # kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]][str(keys[i][j][0])] = \
             #     copy.deepcopy(kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]]['key'])  # key is variable is in a tuple?
-                                                                                                              # that is why i use a zero index in keys[i][j][0]
-            # kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]][keys[i][j][0]] = \
-            #     copy.deepcopy(kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]]['key'])
-            kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]] = \
+            kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]][keys[i][j][0]] = \
                 copy.deepcopy(kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]]['key'])
+            # kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]] = \
+            #     copy.deepcopy(kharacter_lk[character_name_lk].all_information[rkvd_tables['key'][i]]['key'])
 
 
 # key_storage.append(dreturn_keys_values(karacter['Blake'].all_information[args_dict['table']][args_dict['qualifier2']][args_dict['column']]))
@@ -125,15 +124,5 @@ def activate_Load_Character():
             result = fetch_commit(sq_line_1)
             load_character(kharacters[character_name_global].all_information, result[0][0], arg_alter)
 
-    define_spaces(5)
-    print_lines_dict(kharacters[character_name_global].all_information)
-    define_spaces(5)
-
-    print(kharacters[character_name_global].all_information)
-
-    define_spaces(5)
-
-    define_spaces(5)
 
 activate_Load_Character()
-

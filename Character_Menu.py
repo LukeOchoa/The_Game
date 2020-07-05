@@ -22,11 +22,14 @@ def display_command(commands_dc):
         commands_dc["#"][2] = int(commands_dc["#"][2])
 
     if commands_dc[":"][2] == 'display':
-        if commands_dc['-'][2] in dreturn_keys_values(kharacters[character_name_global].all_information)["key"]:
-            if commands_dc["#"][2] in dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]]):
+        dkv_tables = dreturn_keys_values(kharacters[character_name_global].all_information)
+        if commands_dc['-'][2] in dkv_tables['key']:
+            dkv_keys = dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]])
+            if commands_dc["#"][2] in dkv_keys['key']:
                 print_lines_dict(kharacters[character_name_global].all_information[commands_dc["-"][2]][commands_dc['#'][2]])
             else:
-                print(type(commands_dc["#"][2]), "  |   ", dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]]))
+                print(type(commands_dc["#"][2]), "  |   ", kharacters[character_name_global].all_information[commands_dc["-"][2]])
+                fancy = dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]])
                 print(f'Invalid Key==({commands_dc["#"][2]})')
         else:
             print(f'Invalid Table==({commands_dc["-"][2]})')
@@ -35,6 +38,7 @@ def display_command(commands_dc):
 
 
 def write_command():
+
     pass
 
 
@@ -114,5 +118,3 @@ activate_Load_Character()
 user_command = input()
 
 print(command_checker(user_command))
-
-# print(kharacters[character_name_global].all_information['characters'][item])
