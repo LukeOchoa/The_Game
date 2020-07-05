@@ -6,6 +6,40 @@ ril = return_index_location
 
 
 def display_command(commands_dc):
+    if validate_commands_against_dictionary(commands_dc):
+        print_lines_dict(staging_kharacters[character_name_global].all_information[commands_dc["-"][2]][commands_dc['#'][2]])
+
+
+def write_command(commands_wc):
+    print("please choose what you want to write now: ")
+    if validate_commands_against_dictionary(commands_wc):
+        staging_kharacters[character_name_global].all_information[commands_wc["-"][2]][commands_wc['#'][2]][commands_wc['.'][2]] = input()
+
+
+def dictionary_query(commands_dq):
+
+    dkv_tables = dreturn_keys_values(staging_kharacters[character_name_global].all_information)
+    if commands_dq['-'][2] in dkv_tables['key']:
+        dkv_keys = dreturn_keys_values(staging_kharacters[character_name_global].all_information[commands_dq["-"][2]])
+        if commands_dq["#"][2] in dkv_keys['key']:
+            dkv_columns = dreturn_keys_values(staging_kharacters[character_name_global].all_information[commands_dq["-"][2]][commands_dq["#"][2]])
+            if commands_dq[":"][2] == 'write':
+                if commands_dq["."][2] in dkv_columns['key']:
+                    return True
+                else:
+                    print(f'Invalid Column==({commands_dq["."][2]})')
+                    return False
+            return True
+        else:
+            print(type(commands_dq["#"][2]), "  |   ", staging_kharacters[character_name_global].all_information[commands_dq["-"][2]])
+            print(f'Invalid Key==({commands_dq["#"][2]})')
+            return False
+    else:
+        print(f'Invalid Table==({commands_dq["-"][2]})')
+        return False
+
+
+def validate_commands_against_dictionary(commands_vcad):
     command_markers = [
         ':',  # write or display
         '-',  # table
@@ -13,33 +47,23 @@ def display_command(commands_dc):
         '.'  # column
     ]
 
-    cm = command_markers
-    for i in range(len(commands_dc) - 1):
-        commands_dc[cm[i]][2].pop()
-        commands_dc[cm[i]][2] = ("".join(commands_dc[cm[i]][2]))
+    def clean_commands():
+        x = 1
+        if commands_vcad[":"][0] == 'display:':
+            x = 1
+        if commands_vcad[":"][0] == 'write:':
+            x = 0
+        cm = command_markers
+        for i in range(len(commands_vcad) - x):
+            commands_vcad[cm[i]][2].pop()
+            commands_vcad[cm[i]][2] = ("".join(commands_vcad[cm[i]][2]))
 
-    if commands_dc["#"][2].isdigit():
-        commands_dc["#"][2] = int(commands_dc["#"][2])
+        if commands_vcad["#"][2].isdigit():
+            commands_vcad["#"][2] = int(commands_vcad["#"][2])
 
-    if commands_dc[":"][2] == 'display':
-        dkv_tables = dreturn_keys_values(kharacters[character_name_global].all_information)
-        if commands_dc['-'][2] in dkv_tables['key']:
-            dkv_keys = dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]])
-            if commands_dc["#"][2] in dkv_keys['key']:
-                print_lines_dict(kharacters[character_name_global].all_information[commands_dc["-"][2]][commands_dc['#'][2]])
-            else:
-                print(type(commands_dc["#"][2]), "  |   ", kharacters[character_name_global].all_information[commands_dc["-"][2]])
-                fancy = dreturn_keys_values(kharacters[character_name_global].all_information[commands_dc["-"][2]])
-                print(f'Invalid Key==({commands_dc["#"][2]})')
-        else:
-            print(f'Invalid Table==({commands_dc["-"][2]})')
-    else:
-        print(f'Somehow you triggered this and now we are both sad ||| ({commands_dc[":"][2]})')
+        return commands_vcad
 
-
-def write_command():
-
-    pass
+    return dictionary_query(clean_commands())
 
 
 # if_space() examines a character, if it is a space it makes sure adjacent chars are not spaces
@@ -63,14 +87,13 @@ def command_rules(commands_a):
             for i, j in commands_a.items():
                 if j[0][0] == ' ' or j[0][-1] == ' ' or j[1] is False:
                     return False, 'incorrect word syntax'
-            print("write")
+            write_command(commands_a)
             return True
-        if commands_a[':'][0] == command_options[1]:
+        elif commands_a[':'][0] == command_options[1]:
             commands_a['.'][1] = True
             for i, j in commands_a.items():
                 if i == '.':
                     break
-
                 if j[0][0] == ' ' or j[0][-1] == ' ' or j[1] is False:
                     return False, 'incorrect word syntax'
             display_command(commands_a)
@@ -115,6 +138,8 @@ def command_checker(user_command_a):
 
 activate_Load_Character()
 
-user_command = input()
+while True:
 
-print(command_checker(user_command))
+    user_command = input()
+
+    print(command_checker(user_command))

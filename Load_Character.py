@@ -10,6 +10,8 @@ character_name_global = "Blake"
 kharacters = {}
 kharacters[character_name_global] = Character
 kharacters[character_name_global].all_information = copy.deepcopy(tables)
+staging_kharacters = copy.deepcopy(kharacters)  # This is the area that will house all changes and the base name "kharacters" dictionary will be the old version of the items.
+# when something is deleted or changed, at least one previous version of this information will persist by being saving in the "old information" aka kharacters and not staging_kharacters
 
 
 # this is a very simple function that collects all table names from the database and returns it as an array
@@ -109,8 +111,8 @@ def load_character(base_item, sub_item, arg3):
 def activate_Load_Character():
     all_sql_tables = get_table_names()
     table_keys = get_table_keys(all_sql_tables, character_name_global)
-    load_keys(kharacters, table_keys, character_name_global)
-    sql_arguments = get_sql_arguments(kharacters, character_name_global)
+    load_keys(staging_kharacters, table_keys, character_name_global)
+    sql_arguments = get_sql_arguments(staging_kharacters, character_name_global)
 
     for i in range(len(sql_arguments)):
         change_me_later = 'character_name'
@@ -122,7 +124,5 @@ def activate_Load_Character():
             sq_line_1 = sql_line_maker(arg['column'], arg['table'], arg['qualifier'], arg['qualifier2'],
                                        change_me_later, character_name_global)
             result = fetch_commit(sq_line_1)
-            load_character(kharacters[character_name_global].all_information, result[0][0], arg_alter)
+            load_character(staging_kharacters[character_name_global].all_information, result[0][0], arg_alter)
 
-
-activate_Load_Character()
